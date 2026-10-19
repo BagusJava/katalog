@@ -1,0 +1,188 @@
+/* Pengaturan Warna Tema Sporty */
+:root {
+    --bg-color: #f4f4f9;
+    --header-footer-bg: #111827;
+    --accent-color: #ff5722; 
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0; padding: 0;
+    display: flex; flex-direction: column; min-height: 100vh;
+}
+
+/* --- HEADER BARU --- */
+.main-header {
+    background-color: var(--header-footer-bg);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    max-width: 1100px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; /* Agar rapi di HP */
+}
+
+.brand-area h1 { margin: 0; font-size: 2.2rem; color: var(--accent-color); letter-spacing: 2px; }
+.brand-area p { margin: 5px 0 0 0; color: var(--text-color); font-size: 0.9rem; }
+
+.social-links { display: flex; gap: 15px; }
+.social-links a {
+    color: var(--text-color); font-size: 1.5rem; transition: 0.3s;
+    width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255,255,255,0.1);
+    display: flex; justify-content: center; align-items: center; text-decoration: none;
+}
+.social-links a:hover { color: white; background-color: var(--accent-color); transform: translateY(-3px); }
+
+/* --- GALERI --- */
+.gallery-container {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    padding: 40px 20px; max-width: 1100px; margin: 0 auto; flex-grow: 1;
+}
+
+.gallery-item {
+    overflow: hidden; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); cursor: pointer;
+}
+
+.gallery-img {
+    width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.4s ease;
+}
+
+.gallery-img:hover { transform: scale(1.1); }
+
+/* --- MODAL LIGHTBOX --- */
+.lightbox-modal {
+    display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; backdrop-filter: blur(5px);
+}
+.lightbox-content { max-width: 90%; max-height: 85%; border-radius: 8px; box-shadow: 0 0 20px var(--accent-color); }
+.close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.close-btn:hover { color: var(--accent-color); }
+
+/* --- FOOTER PROFESIONAL --- */
+.main-footer {
+    background-color: var(--header-footer-bg); color: var(--text-color); margin-top: auto;
+}
+
+.footer-content {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    max-width: 1100px; margin: 0 auto; padding: 50px 20px;
+}
+
+.footer-section h2, .footer-section h3 { color: var(--accent-color); margin-bottom: 20px; }
+.footer-section p { color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+.footer-section.contact i { margin-right: 10px; color: var(--accent-color); width: 20px; }
+
+.footer-section.links ul { list-style: none; padding: 0; margin: 0; }
+.footer-section.links ul li { margin-bottom: 12px; }
+.footer-section.links ul li a { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+.footer-section.links ul li a:hover { color: var(--accent-color); padding-left: 5px; }
+
+.footer-bottom {
+    background-color: #0b0f19; text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem;
+}
+
+/* --- RESPONSIVITAS (HP & TABLET) --- */
+@media (max-width: 850px) {
+    .gallery-container { grid-template-columns: repeat(2, 1fr); }
+    .footer-content { grid-template-columns: repeat(2, 1fr); }
+    .header-container { flex-direction: column; text-align: center; gap: 15px; }
+}
+
+@media (max-width: 550px) {
+    .gallery-container { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .gallery-img { height: 250px; }
+    .footer-section.links ul li a:hover { padding-left: 0; }
+}
+/* =========================================
+   STYLING HALAMAN DETAIL PRODUK (SHOPEE STYLE)
+   ========================================= */
+
+.product-detail-container, .product-description-container {
+    max-width: 1100px; margin: 30px auto; padding: 20px;
+    background-color: white; border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); color: #333;
+}
+
+.product-detail-container {
+    display: flex; gap: 40px;
+}
+
+/* Kiri: Gambar */
+.product-image-box { width: 40%; }
+.product-image-box img { width: 100%; border-radius: 8px; border: 1px solid #eee; }
+
+/* Kanan: Info Utama */
+.product-info-box { width: 60%; }
+.product-title { font-size: 1.5rem; font-weight: 500; line-height: 1.4; margin-top: 0; margin-bottom: 10px; }
+
+.product-meta { display: flex; gap: 10px; align-items: center; color: #757575; font-size: 0.95rem; margin-bottom: 15px; }
+.product-meta .rating { color: #ee4d2d; font-weight: bold; } /* Warna Bintang Shopee */
+.product-meta .divider { color: #ccc; }
+
+.product-price-box { background-color: #fafafa; padding: 15px 20px; margin-bottom: 25px; border-radius: 4px; display: flex; align-items: center; gap: 15px; }
+.price-discount { text-decoration: line-through; color: #929292; font-size: 1rem; }
+.price-final { font-size: 2rem; font-weight: bold; color: #ee4d2d; }
+.badge-discount { background-color: #ee4d2d; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.75rem; font-weight: bold; }
+
+.option-row { display: flex; margin-bottom: 20px; align-items: center; }
+.option-label { width: 100px; color: #757575; font-size: 0.95rem; }
+.option-value { color: #333; font-size: 0.95rem; }
+
+.size-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.size-btn { background: white; border: 1px solid #e8e8e8; padding: 8px 20px; border-radius: 4px; cursor: pointer; color: #333; transition: 0.2s; }
+.size-btn:hover, .size-btn.active { border-color: #ee4d2d; color: #ee4d2d; font-weight: bold; }
+
+.qty-box { display: flex; border: 1px solid #e8e8e8; border-radius: 4px; overflow: hidden; }
+.qty-btn { background: white; border: none; padding: 8px 15px; cursor: pointer; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; font-size: 1rem; }
+.qty-input { width: 50px; border: none; text-align: center; font-size: 1rem; outline: none; }
+
+.product-actions { display: flex; gap: 15px; margin-top: 30px; }
+.btn-cart { flex: 1; padding: 12px; background-color: rgba(238, 77, 45, 0.1); border: 1px solid #ee4d2d; color: #ee4d2d; font-size: 1rem; cursor: pointer; border-radius: 4px; font-weight: 500; }
+.btn-buy { flex: 1; padding: 12px; background-color: #ee4d2d; border: none; color: white; font-size: 1rem; cursor: pointer; border-radius: 4px; font-weight: 500; }
+
+/* Deskripsi Bawah */
+.product-description-container h2 { font-size: 1.2rem; background-color: #fafafa; padding: 15px; margin: -20px -20px 20px -20px; border-bottom: 1px solid #eee; }
+.desc-content p { line-height: 1.8; color: #555; }
+
+/* Responsivitas HP */
+@media (max-width: 800px) {
+    .product-detail-container { flex-direction: column; }
+    .product-image-box, .product-info-box { width: 100%; }
+}
+
+/* --- HEADER BARU --- */
+.main-header {
+    background-color: var(--header-footer-bg);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    max-width: 1100px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Mengatur Logo dan Teks agar berjajar ke samping (Flexbox) */
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+}
+
+/* Ukuran Logo */
+.brand-logo {
+    height: 60px; /* Sesuaikan tinggi logo */
+    width: auto;
+    border-radius: 50%; /* Membuat logo menjadi bulat jika bentuk awalnya kotak */
+    object-fit: cover;
+}
+
+.brand-text h1 { margin: 0; font-size: 2.2rem; color: var(--accent-color); letter-spacing: 2px; }
+.brand-text p { margin: 5px 0 0 0; color: var(--text-color); font-size: 0.9rem; }
